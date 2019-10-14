@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Contactos</string>
+    <string name="action_settings">Configuraciones</string>
+    <string name="activityContactForm">Formulario para crear un contacto</string>
+    <string name="birthday">Buscar por fecha de nacimiento</string>
+    <string name="call">Realizar Llamada</string>
+    <string name="createContactBtn">Crear Contacto</string>
+    <string name="dataInputError">Informacion Faltante</string>
+    <string name="deleteContact">Borrar Contacto</string>
+    <string name="insertBirthday">Ingerse fecha de nacimiento</string>
+    <string name="listarContactos">Listar Contactos</string>
+    <string name="modifyContact">Modificar Contacto</string>
+    <string name="nameContact">Nombre del Contacto</string>
+    <string name="noContacts">No hay contactos</string>
+    <string name="numberContact">Numero de Telefono</string>
+    <string name="sendButton">Enviar</string>
+    <string name="title_activity_menu_principal">Menu</string>
+    <string name="date">Fecha</string>
+    <string name="selectAction">Seleccione una accion</string>
+</resources>

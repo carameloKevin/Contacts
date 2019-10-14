@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Contacts</string>
+    <string name="activityContactForm">Form to create a contact</string>
+    <string name="createContactBtn">Create Contact</string>
+    <string name="nameContact">Name of Contact</string>
+    <string name="numberContact">Phone Number</string>
+    <string name="sendButton">Send</string>
+    <string name="title_activity_menu_principal">Menu</string>
+    <string name="action_settings">Settings</string>
+    <string name="listarContactos">List contacts</string>
+    <string name="birthday">Search for Birthday</string>
+    <string name="deleteContact">Delete Contact</string>
+    <string name="modifyContact">Modify Contact</string>
+    <string name="call">Make Phone Call</string>
+    <string name="insertBirthday">Insert Birthday</string>
+    <string name="dataInputError">Data missing</string>
+    <string name="noContacts">There are no contacts</string>
+    <string name="date">Date</string>
+    <string name="selectAction">Select an Action</string>
+</resources>
