@@ -77,7 +77,7 @@ public class CreateContact extends AppCompatActivity implements DatePickerDialog
         editText = (TextView) findViewById(R.id.phoneContact);
         phone = editText.getText().toString();
 
-        Contacto contacto = new Contacto(dbHandler.getContactosCount(), name, phone, date);
+        Contacto contacto = new Contacto(name, phone, date);
 
         dbHandler.addContacto(contacto);
         super.onBackPressed();

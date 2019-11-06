@@ -24,8 +24,6 @@ class Contacto implements Serializable {
         y no puede agregar dos objetos con la misma id.
         Para usar en queries y parecidos funciona bien porque se descarta despues.
         * */
-        this.id = idCounter;
-        idCounter += 1;
         this.nombre = nombre;
         this.numero = numeroTel;
         this.cumple = unCumple;

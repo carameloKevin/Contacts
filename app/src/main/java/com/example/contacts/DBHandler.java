@@ -35,7 +35,7 @@ public class DBHandler extends SQLiteOpenHelper{
         public void onCreate(SQLiteDatabase db)
         {
             String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "("
-            + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
+            + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_NAME + " TEXT,"
             + KEY_PHONE_NUMBER + " TEXT," +  KEY_CALENDAR + " TEXT" + ")";
 
             db.execSQL(CREATE_CONTACTS_TABLE);
@@ -55,19 +55,19 @@ public class DBHandler extends SQLiteOpenHelper{
 
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues values = new ContentValues();
-            values.put(KEY_ID, contacto.getId());
             values.put(KEY_NAME, contacto.getNombre());
             values.put(KEY_PHONE_NUMBER, contacto.getNumero());
             values.put(KEY_CALENDAR, contacto.getCumple());
 
             //Insert row
-            db.insert(TABLE_CONTACTS, null, values);
+            db.insert(TABLE_CONTACTS,"id", values);
             db.close();
         }
 
         //Getting one shop
         public Contacto getContactoById(int id)
         {
+            Contacto contacto;
             SQLiteDatabase db = this.getReadableDatabase();
             Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID,
                             KEY_NAME, KEY_PHONE_NUMBER, KEY_CALENDAR}, KEY_ID + "=?",
@@ -76,8 +76,9 @@ public class DBHandler extends SQLiteOpenHelper{
             {
                 cursor.moveToFirst();
             }
-
-            return new Contacto(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), cursor.getString(3));
+            contacto = new Contacto(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), cursor.getString(3));
+            cursor.close();
+            return contacto;
         }
 
     public ArrayList<Contacto> getContactoByBirtday(String date)
@@ -126,6 +127,7 @@ public class DBHandler extends SQLiteOpenHelper{
                     listaContactos.add(contacto);
                 } while (cursor.moveToNext());
             }
+            cursor.close();
             return listaContactos;
             }
 
