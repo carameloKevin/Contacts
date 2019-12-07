@@ -85,9 +85,16 @@ public class DBHandler extends SQLiteOpenHelper{
     {
         ArrayList<Contacto> listaContactos = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID,
+
+        /*Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID,
                         KEY_NAME, KEY_PHONE_NUMBER, KEY_CALENDAR}, KEY_CALENDAR + "=?",
                 new String[] { date }, null, null, null, null);
+        */
+
+        Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID,
+                        KEY_NAME, KEY_PHONE_NUMBER, KEY_CALENDAR}, KEY_CALENDAR + " LIKE " + "\'"+ date+"%"+"\'",
+                null, null, null, null, null);
+
         try {
             if (cursor.moveToFirst())
             {

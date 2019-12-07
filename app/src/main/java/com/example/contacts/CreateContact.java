@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class CreateContact extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
@@ -57,11 +58,17 @@ public class CreateContact extends AppCompatActivity implements DatePickerDialog
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        String pattern = "dd/MM/yyyy";
+        DateFormat df = new SimpleDateFormat(pattern);
+
         Calendar c = Calendar.getInstance();
         c.set(Calendar.YEAR, year);
         c.set(Calendar.MONTH, month);
         c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        date = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
+
+        date = df.format(c.getTime());
+
+        //date = DateFormat.getDateInstance().format(c.getTime());
         TextView textView = (TextView) findViewById(R.id.textViewDate);
         textView.setText(date);
     }

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -52,17 +53,27 @@ public class BuscarCumpleanos extends AppCompatActivity implements DatePickerDia
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        String pattern = "dd/MM/yyyy";
+        DateFormat df = new SimpleDateFormat(pattern);
+
         Calendar c = Calendar.getInstance();
         c.set(Calendar.YEAR, year);
         c.set(Calendar.MONTH, month);
         c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        date = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
+
+        date = df.format(c.getTime());
+
+        //date = DateFormat.getDateInstance().format(c.getTime());
         TextView textView = (TextView) findViewById(R.id.textViewSelectedDate);
         textView.setText(date);
     }
 
     public void searchBirthday(){
-        ArrayList<Contacto> lista = db.getContactoByBirtday(date);
+        String aux = date.substring(0,5);
+        Toast.makeText(BuscarCumpleanos.this, aux, Toast.LENGTH_SHORT).show();
+
+
+        ArrayList<Contacto> lista = db.getContactoByBirtday(aux);
 
         Intent intent = new Intent(BuscarCumpleanos.this, ListaContactos.class);
         intent.putExtra("listaContactos", lista);

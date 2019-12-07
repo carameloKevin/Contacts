@@ -31,20 +31,21 @@
         android:id="@+id/birthdayBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewDate"
-        android:layout_alignParentStart="true"
+        android:layout_below="@+id/phoneContact"
+        android:layout_alignParentEnd="true"
+
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="135dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="135dp"
         android:text="@string/insertBirthday" />
 
     <Button
         android:id="@+id/sendBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/birthdayBtn"
+        android:layout_below="@+id/textViewDate"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="50dp"
         android:onClick="createContact"
         android:text="@string/sendButton" />
@@ -53,8 +54,8 @@
         android:id="@+id/textViewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/phoneContact"
+        android:layout_below="@+id/birthdayBtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Date" />
+        android:text="@string/date" />
 </RelativeLayout>
